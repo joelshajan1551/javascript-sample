@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-btn">2nd btn</button>
+
+    <script>
+      // console.log(document.title);
+      // document.title = "changed";
+
+      // console.log(document.body);
+      // document.body.innerHTML = "<button>roo</button>";
+      // document.title = "good job";
+
+      console.log(document.querySelector("button").innerHTML);
+      document.querySelector("button").innerHTML = " changed";
+
+      const buttonElement = document.querySelector(".js-btn");
+      console.log(buttonElement);
+    </script>
+  </body>
+</html>
