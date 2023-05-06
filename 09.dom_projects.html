@@ -5,30 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM PROJECT</title>
+    <style>
+      .subbtn {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+        font-weight: 900;
+      }
+      .subbedbtn {
+        background-color: rgb(170, 166, 166);
+      }
+    </style>
   </head>
 
   <body>
     <p>Youtube subscribe button</p>
     <button
       onclick="
-    subscribe();
-    "
-      class="js-subscribe-btn"
+      subscribe();
+      "
+      class="js-subscribe-btn subbtn"
     >
       subscribe
     </button>
+
     <p class="">Amazon shipping calculator</p>
-    <input placeholder="Cost of order" />
-    <button>calculate</button>
+    <input
+      placeholder="Cost of order"
+      onkeydown="handleCostKeyDown(event);"
+      class="js-cost-input"
+    />
+    <button onclick="calculateTotal();">calculate</button>
+    <p class="js-totalCost"></p>
   </body>
   <script>
+    function handleCostKeyDown(event) {
+      if (event.key === "Enter") {
+        calculateTotal();
+      }
+    }
+    function calculateTotal() {
+      const inputElement = document.querySelector(".js-cost-input");
+      let cost = Number(inputElement.value);
+      if (cost < 40) {
+        cost = cost + 10;
+      } else {
+      }
+      document.querySelector(".js-totalCost").innerHTML = `$${cost}`;
+    }
+
     function subscribe() {
       const buttonElement = document.querySelector(".js-subscribe-btn");
 
       if (buttonElement.innerText === "subscribe") {
         buttonElement.innerHTML = "subscribed";
+        buttonElement.classList.add("subbedbtn");
       } else {
         buttonElement.innerHTML = "subscribe";
+        buttonElement.classList.remove("subbedbtn");
       }
     }
   </script>
